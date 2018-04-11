@@ -1,2 +1,4 @@
 # ERC-server
-Moved to separate repository
+
+* Initial install `npm i`
+* `npm run dev`

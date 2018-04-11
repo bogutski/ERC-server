@@ -8,7 +8,7 @@
     "clean": "rimraf dist/",
     "build": "npm run clear && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,bin --copy-files",
     "dev": "nodemon --inspect -r babel-register src",
-    "start": "npm run build && node dist"
+    "start": "yarn run build && node dist"
   },
   "repository": {
     "type": "git",
