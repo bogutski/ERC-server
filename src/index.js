@@ -10,6 +10,7 @@ import fileRouter from './modules/file/fileRoutes';
 
 import message from './modules/messages/messages';
 
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // ===== DISABLE EXPRESS SIGNATURE ======
@@ -73,6 +74,6 @@ app.use((error, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 // ===== PORT =====
-app.listen(5000, () => {
-  console.log('Example app listening on port 5000');
+app.listen(PORT, function () {
+  console.log(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
 });
