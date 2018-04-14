@@ -2,14 +2,14 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist/",
-    "build": "npm run clear && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,bin --copy-files",
-    "dev": "nodemon --inspect -r babel-register src",
-    "start": "yarn run build && node dist"
-  },
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "yarn run clean && npm run build-babel",
+    "start": "yarn run build && node ./build/index.js",
+    "dev": "nodemon --inspect -r babel-register src"
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Siteograf/project-js.git"
