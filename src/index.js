@@ -10,7 +10,7 @@ import fileRouter from './modules/file/fileRoutes';
 
 import message from './modules/messages/messages';
 
-const PORT = process.env.PORT || 5000;
+const PORT = +process.env.PORT || 5000;
 const app = express();
 
 // ===== DISABLE EXPRESS SIGNATURE ======
@@ -19,9 +19,7 @@ app.disable('x-powered-by');
 // ===== DATABASE ======
 mongoose.Promise = global.Promise; // fix deprecated problem in mongoose
 mongoose.connect(
-  `mongodb://siteograf:${
-    process.env.MONGO_ATLAS_PWD
-  }@reactshop-shard-00-00-wjryo.mongodb.net:27017,
+  `mongodb://siteograf:siteograf@reactshop-shard-00-00-wjryo.mongodb.net:27017,
   reactshop-shard-00-01-wjryo.mongodb.net:27017,
   reactshop-shard-00-02-wjryo.mongodb.net:27017/test?ssl=true&replicaSet=ReactShop-shard-0&authSource=admin`,
   {
@@ -74,6 +72,6 @@ app.use((error, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 // ===== PORT =====
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
 });
