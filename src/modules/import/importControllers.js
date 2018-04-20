@@ -3,12 +3,19 @@ import _ from 'lodash';
 import Product from '../product/productModel';
 import message from './../messages/messages';
 import cloudMultiUpload from '../file/cloudinaryFileUpload';
+import * as fs from 'fs';
+
+import csv from 'csv';
 
 export async function productImport(req, res) {
-  // console.log('Here', req, res);
+  console.log('Here');
+
+  let c =  fs.readFileSync('uploads/imp.csv', 'utf8');
+
+  console.log(c);
 
   // const _id = new mongoose.Types.ObjectId();
-  const images = [];
+  // const images = [];
 
   // if (!_.isEmpty(req.files)) {
   //   // Paths to local upload folder
@@ -21,19 +28,15 @@ export async function productImport(req, res) {
   //   }));
   // }
 
-  const product = new Product({
-    _id,
-    name: req.body.name,
-    price: req.body.price,
-    catalog: req.body.catalog,
-    image: images,
-  });
+  // const product = new Product({
+  //   image: images,
+  // });
 
   // Send back product id for redirect to new product after creating
   // const payload = {
   //   productId: _id,
   // };
-
+  res.status(200).json(message.success('Import CSV'));
   // product
   //   .save()
   //   .then((result) => {
