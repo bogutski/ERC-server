@@ -1,18 +1,25 @@
-import mongoose from 'mongoose';
-import _ from 'lodash';
-import Product from '../product/productModel';
+// import mongoose from 'mongoose';
+// import _ from 'lodash';
+// import Product from '../product/productModel';
 import message from './../messages/messages';
-import cloudMultiUpload from '../file/cloudinaryFileUpload';
+import parse from 'csv-parse';
 import * as fs from 'fs';
 
-import csv from 'csv';
-
 export async function productImport(req, res) {
-  console.log('Here');
+  function afterParse(output) {
+    res.status(200).json(message.success('Import CSV', output));
+  }
 
-  let c =  fs.readFileSync('uploads/imp.csv', 'utf8');
+  const csv = fs.readFileSync('uploads/imp.csv', 'utf8');
 
-  console.log(c);
+  parse(csv, {
+    comment: '#',
+    delimiter: ';',
+    skip_empty_lines: true,
+  }, (err, output) => {
+    if (err) res.status(400).json(message.error('Import CSV error', err));
+    afterParse(output);
+  });
 
   // const _id = new mongoose.Types.ObjectId();
   // const images = [];
@@ -36,7 +43,6 @@ export async function productImport(req, res) {
   // const payload = {
   //   productId: _id,
   // };
-  res.status(200).json(message.success('Import CSV'));
   // product
   //   .save()
   //   .then((result) => {

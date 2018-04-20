@@ -25,6 +25,7 @@
     "body-parser": "^1.18.2",
     "cloudinary": "^1.9.1",
     "csv": "^3.0.2",
+    "csv-parse": "^2.2.0",
     "dotenv": "^4.0.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
