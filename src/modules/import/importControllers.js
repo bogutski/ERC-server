@@ -1,13 +1,15 @@
 // import mongoose from 'mongoose';
 // import _ from 'lodash';
-// import Product from '../product/productModel';
-import message from './../messages/messages';
 import parse from 'csv-parse';
 import * as fs from 'fs';
+import Import from './importModel';
+import message from './../messages/messages';
 
 export async function productImport(req, res) {
   function afterParse(output) {
-    res.status(200).json(message.success('Import CSV', output));
+    Import.insertMany(output, (error, docs) => {
+      res.status(200).json(message.success('Import CSV', { error, docs }));
+    });
   }
 
   const csv = fs.readFileSync('uploads/imp.csv', 'utf8');
@@ -16,6 +18,7 @@ export async function productImport(req, res) {
     comment: '#',
     delimiter: ';',
     skip_empty_lines: true,
+    columns: true,
   }, (err, output) => {
     if (err) res.status(400).json(message.error('Import CSV error', err));
     afterParse(output);
@@ -35,8 +38,9 @@ export async function productImport(req, res) {
   //   }));
   // }
 
-  // const product = new Product({
-  //   image: images,
+  //
+  // const product = new Import({
+  //   iid: images,
   // });
 
   // Send back product id for redirect to new product after creating
