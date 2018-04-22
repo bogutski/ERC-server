@@ -1,12 +1,16 @@
 import { Router } from 'express';
 import upload from '../file/fileLocalUpload';
 
-import { productImport, productImportDeleteAll } from './importControllers';
+import {
+  productCsvImport,
+  productJsonImport,
+  productImportDeleteAll,
+} from './importControllers';
 
 const router = Router();
 
-router.post('/', upload.single('image', 1), productImport);
-router.post('/csv', productImport);
+router.post('/csv', productCsvImport);
+router.post('/json', productJsonImport);
 router.delete('/all', productImportDeleteAll);
 
 export default router;

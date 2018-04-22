@@ -18,20 +18,19 @@ export async function productImportDeleteAll(req, res) {
       }
     })
     .catch((err) => {
-      console.log(err);
       res.status(500)
         .json(message.error(err));
     });
 }
 
-export async function productImport(req, res) {
+export async function productCsvImport(req, res) {
   function afterParse(output) {
     Import.insertMany(output, (error, docs) => {
       res.status(200).json(message.success('Import CSV', { error, docs }));
     });
   }
 
-  const csv = fs.readFileSync('uploads/imp.csv', 'utf8');
+  const csv = fs.readFileSync('uploads/imports/imp.csv', 'utf8');
 
   parse(csv, {
     comment: '#',
@@ -42,41 +41,16 @@ export async function productImport(req, res) {
     if (err) res.status(400).json(message.error('Import CSV error', err));
     afterParse(output);
   });
-
-  // const _id = new mongoose.Types.ObjectId();
-  // const images = [];
-
-  // if (!_.isEmpty(req.files)) {
-  //   // Paths to local upload folder
-  //   const filesArr = req.files.map(el => el.path);
-  //   const cloudUrls = await cloudMultiUpload(filesArr);
-  //
-  //   images = cloudUrls.map(el => ({
-  //     pid: el.public_id,
-  //     url: el.url,
-  //   }));
-  // }
-
-  //
-  // const product = new Import({
-  //   iid: images,
-  // });
-
-  // Send back product id for redirect to new product after creating
-  // const payload = {
-  //   productId: _id,
-  // };
-  // product
-  //   .save()
-  //   .then((result) => {
-  //     console.log(result);
-  //     res.status(201)
-  //       .json(message.success('Product created', payload));
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(500)
-  //       .json(message.error(err));
-  //   });
 }
 
+export async function productJsonImport(req, res) {
+  function afterParse(output) {
+    Import.insertMany(output, (error, docs) => {
+      res.status(200).json(message.success('Import JSON', { error, docs }));
+    });
+  }
+
+  const json = fs.readFileSync('uploads/imports/imp.json', 'utf8');
+
+  afterParse(JSON.parse(json));
+}
