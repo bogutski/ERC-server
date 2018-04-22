@@ -5,6 +5,25 @@ import * as fs from 'fs';
 import Import from './importModel';
 import message from './../messages/messages';
 
+export async function productImportDeleteAll(req, res) {
+  Import.remove({})
+    .exec()
+    .then((doc) => {
+      if (doc.result.n) {
+        res.status(200)
+          .json(message.success('All imports deleted'));
+      } else {
+        res.status(400)
+          .json(message.error('Imports not found'));
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500)
+        .json(message.error(err));
+    });
+}
+
 export async function productImport(req, res) {
   function afterParse(output) {
     Import.insertMany(output, (error, docs) => {
