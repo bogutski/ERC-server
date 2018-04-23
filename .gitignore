@@ -1,6 +1,7 @@
 .idea
 node_modules/
 dist/*
+build/*
 uploads/images/*
 /yarn-error.log
 /process.env
