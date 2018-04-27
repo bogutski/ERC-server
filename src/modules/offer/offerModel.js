@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const importSchema = mongoose.Schema({
+const offerSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   title: { type: String, required: true },
   catalog: { type: String, required: false },
@@ -8,4 +8,4 @@ const importSchema = mongoose.Schema({
   image: { type: Array, required: false },
 });
 
-export default mongoose.model('Import', importSchema);
+export default mongoose.model('Offer', offerSchema);

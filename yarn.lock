@@ -1310,7 +1310,7 @@ eslint-config-airbnb-base@^12.1.0:
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
+  resolved "https://registry.yarnpkg.com/eslint-offer-resolver-node/-/eslint-offer-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
   dependencies:
     debug "^2.6.9"
     resolve "^1.5.0"
@@ -1324,12 +1324,12 @@ eslint-module-utils@^2.2.0:
 
 eslint-plugin-import@^2.8.0:
   version "2.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.11.0.tgz#15aeea37a67499d848e8e981806d4627b5503816"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-offer/-/eslint-plugin-offer-2.11.0.tgz#15aeea37a67499d848e8e981806d4627b5503816"
   dependencies:
     contains-path "^0.1.0"
     debug "^2.6.8"
     doctrine "1.5.0"
-    eslint-import-resolver-node "^0.3.1"
+    eslint-offer-resolver-node "^0.3.1"
     eslint-module-utils "^2.2.0"
     has "^1.0.1"
     lodash "^4.17.4"
@@ -1891,7 +1891,7 @@ ignore@^3.3.3:
 
 import-lazy@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
+  resolved "https://registry.yarnpkg.com/offer-lazy/-/offer-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -3649,7 +3649,7 @@ update-notifier@^2.3.0:
     boxen "^1.2.1"
     chalk "^2.0.1"
     configstore "^3.0.0"
-    import-lazy "^2.1.0"
+    offer-lazy "^2.1.0"
     is-ci "^1.0.10"
     is-installed-globally "^0.1.0"
     is-npm "^1.0.0"

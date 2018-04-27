@@ -7,7 +7,7 @@ import productRouter from './modules/product/productRoutes';
 import vocabularRouter from './modules/vocabular/vocabularRoutes';
 import backupRouter from './modules/backup/backupRoutes';
 import fileRouter from './modules/file/fileRoutes';
-import importRouter from './modules/import/importRoutes';
+import offertRouter from './modules/offer/offerRoutes';
 
 import message from './modules/messages/messages';
 
@@ -59,7 +59,7 @@ app.use('/product', productRouter);
 app.use('/vocabular', vocabularRouter);
 app.use('/file', fileRouter);
 app.use('/backup', backupRouter);
-app.use('/import', importRouter);
+app.use('/offer', offertRouter);
 
 // ===== ERROR HANDLING =====
 app.use((req, res, next) => res.status(404).json(message.error('API not found'))); // eslint-disable-line no-unused-vars
