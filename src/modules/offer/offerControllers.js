@@ -38,7 +38,7 @@ export async function offerImportDeleteAll(req, res) {
     });
 }
 
-export async function offerCsvImport(req, res) {
+export async function offerImportCsv(req, res) {
   function afterParse(output) {
     Import.insertMany(output, (error, docs) => {
       res.status(200).json(message.success('Import CSV', { error, docs }));
@@ -58,7 +58,7 @@ export async function offerCsvImport(req, res) {
   });
 }
 
-export async function offerJsonImport(req, res) {
+export async function offerImportJson(req, res) {
   function afterParse(output) {
     Import.insertMany(output, (error, docs) => {
       res.status(200).json(message.success('Import JSON', { error, docs }));

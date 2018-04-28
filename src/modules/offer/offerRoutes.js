@@ -1,15 +1,15 @@
 import { Router } from 'express';
 
 import {
-  offerCsvImport,
-  offerJsonImport,
+  offerImportCsv,
+  offerImportJson,
   offerImportDeleteAll,
 } from './offerControllers';
 
 const router = Router();
 
-router.post('/csv', offerCsvImport);
-router.post('/json', offerJsonImport);
+router.post('/csv', offerImportCsv);
+router.post('/json', offerImportJson);
 router.delete('/all', offerImportDeleteAll);
 
 export default router;
