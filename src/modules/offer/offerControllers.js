@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import Import from './offerModel';
 import message from './../messages/messages';
 
-export const offerLoadAll = (req, res) => {
+export const offerGetAll = (req, res) => {
   Import.find()
     .select('-__v')
     .exec()
@@ -26,7 +26,7 @@ export async function offerImportDeleteAll(req, res) {
     .then((doc) => {
       if (doc.result.n) {
         res.status(200)
-          .json(message.success('All imports deleted'));
+          .json(message.success('All offers deleted'));
       } else {
         res.status(400)
           .json(message.error('Imports not found'));
@@ -45,7 +45,7 @@ export async function offerImportCsv(req, res) {
     });
   }
 
-  const csv = fs.readFileSync('uploads/imports/imp.csv', 'utf8');
+  const csv = fs.readFileSync('uploads/offers/offer_import.csv', 'utf8');
 
   parse(csv, {
     comment: '#',
@@ -65,7 +65,7 @@ export async function offerImportJson(req, res) {
     });
   }
 
-  const json = fs.readFileSync('uploads/imports/imp.json', 'utf8');
+  const json = fs.readFileSync('uploads/offers/offer_import.json', 'utf8');
 
   afterParse(JSON.parse(json));
 }

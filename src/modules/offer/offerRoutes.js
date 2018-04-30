@@ -4,12 +4,14 @@ import {
   offerImportCsv,
   offerImportJson,
   offerImportDeleteAll,
+  offerGetAll,
 } from './offerControllers';
 
 const router = Router();
 
-router.post('/csv', offerImportCsv);
-router.post('/json', offerImportJson);
+router.get('/all', offerGetAll);
 router.delete('/all', offerImportDeleteAll);
+router.post('/import/json', offerImportJson);
+router.post('/import/csv', offerImportCsv);
 
 export default router;
