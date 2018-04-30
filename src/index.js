@@ -53,6 +53,9 @@ app.use((req, res, next) => { // eslint-disable-line consistent-return
   next();
 });
 
+// ===== IGNORE FAVICON =====
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 // ===== ROUTING =====
 app.use('/user', userRouter);
 app.use('/product', productRouter);
