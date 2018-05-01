@@ -18,10 +18,7 @@ const app = express();
 app.disable('x-powered-by');
 
 // ===== DATABASE ======
-// mongoose.Promise = global.Promise; // fix deprecated problem in mongoose
-mongoose.connect(`mongodb://siteograf:siteograf@reactshop-shard-00-00-wjryo.mongodb.net:27017,
-  reactshop-shard-00-01-wjryo.mongodb.net:27017,
-  reactshop-shard-00-02-wjryo.mongodb.net:27017/test?ssl=true&replicaSet=ReactShop-shard-0&authSource=admin`);
+mongoose.connect(`mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PWD}@${process.env.MONGO_ATLAS_HOST}/${process.env.MONGO_ATLAS_DB_NAME}`);
 
 mongoose.connection.on('error', () => {
   throw new Error('Unable to connect to database');
