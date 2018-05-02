@@ -2,9 +2,6 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "8.9.4"
-  },
   "scripts": {
     "heroku-postbuild": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Siteograf/project-js.git"
+    "url": "git+https://github.com/bogutski/ERC-server.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Siteograf/project-js/issues"
+    "url": "https://github.com/bogutski/ERC-server/issues"
   },
-  "homepage": "https://github.com/Siteograf/project-js#readme",
+  "homepage": "https://github.com/bogutski/ERC-server#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
