@@ -2,6 +2,9 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.9.4"
+  },
   "scripts": {
     "heroku-postbuild": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
