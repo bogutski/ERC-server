@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import sequelize from './sql';
 import userRouter from './modules/user/userRoutes';
 import productRouter from './modules/product/productRoutes';
 import vocabularRouter from './modules/vocabular/vocabularRoutes';
@@ -13,6 +14,16 @@ import message from './modules/messages/messages';
 
 const PORT = +process.env.PORT || 5000;
 const app = express();
+
+// ===== SQL =======
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 // ===== DISABLE EXPRESS SIGNATURE ======
 app.disable('x-powered-by');
