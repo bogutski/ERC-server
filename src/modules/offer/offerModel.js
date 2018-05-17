@@ -13,16 +13,16 @@
 import Sequelize from 'sequelize';
 import sequelize from './../../sql';
 
-const Product = sequelize.define('product', {
-  firstName: {
+const Offer = sequelize.define('offer', {
+  title: {
     type: Sequelize.STRING,
   },
-  lastName: {
-    type: Sequelize.STRING,
+  price: {
+    type: Sequelize.INTEGER,
   },
 });
 
-export default Product;
+export default Offer;
 
 // // force: true will drop the table if it already exists
 // Product.sync({ force: false }).then(() =>
