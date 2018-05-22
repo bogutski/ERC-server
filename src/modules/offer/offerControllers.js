@@ -10,6 +10,12 @@ export async function offerCreate(req, res) {
         title: req.body.title,
         price: req.body.price,
       },
+      defaults: {
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        image: JSON.stringify(req.body.image),
+      },
     })
     .spread((user, created) => {
       const o = user.get({
@@ -17,7 +23,6 @@ export async function offerCreate(req, res) {
       });
       res.status(201)
         .json(message.success('Offer created', { o, created }));
-      // console.log(created);
     });
 }
 
