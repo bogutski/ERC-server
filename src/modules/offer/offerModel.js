@@ -16,9 +16,19 @@ import sequelize from './../../sql';
 const Offer = sequelize.define('offer', {
   title: {
     type: Sequelize.STRING,
+    allowNull: false,
   },
   price: {
     type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  image: {
+    type: Sequelize.STRING,
+    allowNull: true,
   },
 });
 
