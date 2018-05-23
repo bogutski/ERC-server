@@ -145,7 +145,7 @@ export const productDeleteById = (req, res) => {
   Product.remove({ _id: id })
     .exec()
     .then((doc) => {
-      if (doc.result.n) {
+      if (doc.n) {
         res.status(200)
           .json(message.success('Product deleted'));
       } else {
