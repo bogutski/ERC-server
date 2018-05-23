@@ -4,13 +4,13 @@ import {
   // offerImportCsv,
   // offerImportJson,
   // offerImportDeleteAll,
-  // offerGetAll,
+  offerGetAll,
   offerCreate,
 } from './offerControllers';
 
 const router = Router();
 
-// router.get('/all', offerGetAll);
+router.get('/all', offerGetAll);
 // router.delete('/all', offerImportDeleteAll);
 router.post('/', offerCreate);
 // router.post('/import/json', offerImportJson);
