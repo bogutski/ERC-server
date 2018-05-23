@@ -26,6 +26,14 @@ export async function offerCreate(req, res) {
     });
 }
 
+export async function offerGetAll(req, res) {
+  Offer
+    .findAll().then((docs) => {
+      res.status(201)
+        .json(docs);
+    });
+}
+
 // const product = new Product({
 //   _id,
 //   name: req.body.name,
