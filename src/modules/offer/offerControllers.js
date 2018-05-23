@@ -17,12 +17,12 @@ export async function offerCreate(req, res) {
         image: JSON.stringify(req.body.image),
       },
     })
-    .spread((user, created) => {
-      const o = user.get({
+    .spread((doc, created) => {
+      const docObj = doc.get({
         plain: true,
       });
       res.status(201)
-        .json(message.success('Offer created', { o, created }));
+        .json(message.success('Offer created', { docObj, created }));
     });
 }
 
@@ -78,7 +78,6 @@ export async function offerGetAll(req, res) {
 //       },
 //       false
 //     ]
-//     The array returned by findOrCreate gets spread into its 2 parts by the "spread" on line 69, and the parts will be passed as 2 arguments to the callback function beginning on line 69, which will then treat them as "user" and "created" in this case. (So "user" will be the object from index 0 of the returned array and "created" will equal "false".)
 //     */
 //   })
 
